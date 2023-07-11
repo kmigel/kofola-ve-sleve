@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import requests, random
 from bs4 import BeautifulSoup
 
