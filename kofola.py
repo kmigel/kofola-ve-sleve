@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
-import requests, random
+import requests, random, sys
 from bs4 import BeautifulSoup
 
-r = requests.get("https://www.kupi.cz/sleva/kofola")
+drink_url = "kofola"
+drink_text = "kofoly"
+
+if(len(sys.argv) > 2):
+    print("Too many arguments")
+    quit()
+if(len(sys.argv) == 2 and sys.argv[1] == "-p"):
+    drink_url = "limonada-pepsi"
+    drink_text = "pepsi"
+
+r = requests.get("https://www.kupi.cz/sleva/" + drink_url)
 
 soup = BeautifulSoup(r.content, "html.parser")
 s = soup.find("div", class_="relative product_discounts product_discounts_overview")
@@ -14,4 +24,4 @@ for discount in discounts:
     shopName = " ".join(discount.find("span", class_="discounts_shop_name").find("a").find("span").text.strip().split())
     litresAmount = discount.find("div", class_="discount_amount left").text.strip()[2:]
     price = discount.find("strong", class_="discount_price_value").text.strip()
-    print(random.choice(l) + shopName + " a kup si " + litresAmount + " kofoly za " + price)
+    print(random.choice(l) + shopName + " a kup si " + litresAmount + " " + drink_text + " za " + price)
