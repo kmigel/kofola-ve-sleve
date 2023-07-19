@@ -2,6 +2,10 @@
 A console app that prints out shops in the Czech Republic where the price of a famous drink Kofola is currently the lowest.
 ## Preview
 ![preview](https://github.com/kmigel/kofola-ve-sleve/assets/126352831/3aeb668a-9709-48fc-8eb5-4038e4a77c22)
+## New Features!
+It is now possible to view the shops that have discounts on Pepsi!
+To do so add an argument -p:
+- `./kofola.py -p`
 ## Features
 - See all the shops that have discounts on Kofola
 - See the prices of Kofola in the shop
